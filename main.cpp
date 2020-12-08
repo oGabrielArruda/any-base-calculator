@@ -38,6 +38,8 @@ int main() {
                     resultado = s.calcular();
                     break;
             }
+
+            cout << "\nO resultado é: \n" << resultado;
         }
         else
         {
