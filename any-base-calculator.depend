@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1607461272 source:c:\users\user\desktop\ctc\any-base-calculator\utils.cpp
+	<string>
+	"utils.h"
+	<iostream>
+
+1607459555 c:\users\user\desktop\ctc\any-base-calculator\utils.h
+	<string>
+
+1607461225 source:c:\users\user\desktop\ctc\any-base-calculator\soma.cpp
+	<iostream>
+	<string>
+	<stdlib.h>
+	"soma.h"
+	"utils.h"
+
+1607459616 c:\users\user\desktop\ctc\any-base-calculator\soma.h
+
+1607460120 source:c:\users\user\desktop\ctc\any-base-calculator\main.cpp
+	<iostream>
+	<string>
+	"soma.h"
+
