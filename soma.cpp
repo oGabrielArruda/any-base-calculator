@@ -9,8 +9,7 @@ using namespace std;
 
 Soma::Soma(string nmrUm, string nmrDois, int base)
 {
-    Utils u;
-    string* valores = u.AdaptarValores(nmrUm, nmrDois);
+    string* valores = Utils::AdaptarValores(nmrUm, nmrDois);
     this -> valorUm = valores[0];
     this -> valorDois = valores[1];
     this -> base = base;

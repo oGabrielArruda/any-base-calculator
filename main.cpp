@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "soma.h"
+#include "subtracao.h"
 
 using namespace std;
 
@@ -34,12 +35,20 @@ int main() {
             switch(operacao)
             {
                 case '+':
+                {
                     Soma s(nmrUm, nmrDois, base);
                     resultado = s.calcular();
                     break;
+                }
+                case '-':
+                {
+                    Subtracao s(nmrUm, nmrDois, base);
+                    resultado = s.calcular();
+                    break;
+                }
             }
 
-            cout << "\nO resultado é: \n" << resultado;
+            cout << "\nO resultado eh: \n" << resultado;
         }
         else
         {

@@ -9,7 +9,6 @@ class Soma
         string valorUm;
         string valorDois;
         int base;
-        void adaptarValores(string, string);
     public:
         Soma(string, string, int);
         string calcular();

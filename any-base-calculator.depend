@@ -4,10 +4,10 @@
 	"utils.h"
 	<iostream>
 
-1607459555 c:\users\user\desktop\ctc\any-base-calculator\utils.h
+1607528972 c:\users\user\desktop\ctc\any-base-calculator\utils.h
 	<string>
 
-1607469412 source:c:\users\user\desktop\ctc\any-base-calculator\soma.cpp
+1607528984 source:c:\users\user\desktop\ctc\any-base-calculator\soma.cpp
 	<iostream>
 	<string>
 	<stdlib.h>
@@ -15,12 +15,13 @@
 	"utils.h"
 	"somadoradedigito.h"
 
-1607459616 c:\users\user\desktop\ctc\any-base-calculator\soma.h
+1607528676 c:\users\user\desktop\ctc\any-base-calculator\soma.h
 
-1607469489 source:c:\users\user\desktop\ctc\any-base-calculator\main.cpp
+1607533208 source:c:\users\user\desktop\ctc\any-base-calculator\main.cpp
 	<iostream>
 	<string>
 	"soma.h"
+	"subtracao.h"
 
 1607467862 source:c:\users\user\desktop\ctc\any-base-calculator\caracteres.cpp
 	<cctype>
@@ -28,10 +29,29 @@
 
 1607467501 c:\users\user\desktop\ctc\any-base-calculator\caracteres.h
 
-1607469343 source:c:\users\user\desktop\ctc\any-base-calculator\somadoradedigito.cpp
+1607534730 source:c:\users\user\desktop\ctc\any-base-calculator\somadoradedigito.cpp
 	<ctype.h>
 	"somadoradedigito.h"
 	"caracteres.h"
 
 1607469339 c:\users\user\desktop\ctc\any-base-calculator\somadoradedigito.h
+
+1607536528 source:c:\users\user\desktop\ctc\any-base-calculator\subtracao.cpp
+	"subtracao.h"
+	"subtradoradedigito.h"
+	"utils.h"
+	<stack>
+	<string>
+	<iostream>
+
+1607529113 c:\users\user\desktop\ctc\any-base-calculator\subtracao.h
+	<string>
+
+1607535863 source:c:\users\user\desktop\ctc\any-base-calculator\subtradoradedigito.cpp
+	"subtradoradedigito.h"
+	"somadoradedigito.h"
+	"caracteres.h"
+	<iostream>
+
+1607530610 c:\users\user\desktop\ctc\any-base-calculator\subtradoradedigito.h
 

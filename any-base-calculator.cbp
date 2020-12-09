@@ -32,9 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="caracteres.cpp" />
+		<Unit filename="caracteres.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="soma.cpp" />
 		<Unit filename="soma.h" />
+		<Unit filename="somadoradedigito.cpp" />
+		<Unit filename="somadoradedigito.h" />
 		<Unit filename="utils.cpp" />
 		<Unit filename="utils.h" />
 		<Extensions>

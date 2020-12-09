@@ -6,7 +6,7 @@
 class Utils
 {
     public:
-        std::string* AdaptarValores(std::string, std::string);
+        static std::string* AdaptarValores(std::string, std::string);
 };
 
 #endif // UTILS_H_INCLUDED
