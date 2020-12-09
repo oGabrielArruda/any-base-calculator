@@ -2,6 +2,7 @@
 #include <string>
 #include "soma.h"
 #include "subtracao.h"
+#include "multiplicacao.h"
 
 using namespace std;
 
@@ -44,6 +45,12 @@ int main() {
                 {
                     Subtracao s(nmrUm, nmrDois, base);
                     resultado = s.calcular();
+                    break;
+                }
+                case '*':
+                {
+                    Multiplicacao m(nmrUm, nmrDois, base);
+                    resultado = m.calcular();
                     break;
                 }
             }

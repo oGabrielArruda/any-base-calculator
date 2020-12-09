@@ -26,7 +26,6 @@ string* Utils::AdaptarValores(string nmrUm, string nmrDois)
     else
         valorUmAntesDaVirgula = inserirZerosAntesDaVirgula(valorUmAntesDaVirgula, lenDoisAntesDaVirgula - lenUmAntesDaVirgula);
 
-
     string valorUmDpsDaVirgula = getDepoisDaVirgula(nmrUm);
     int lenUmDepoisDaVirgula = valorUmDpsDaVirgula.length();
 

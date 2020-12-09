@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1607461498 source:c:\users\user\desktop\ctc\any-base-calculator\utils.cpp
+1607544035 source:c:\users\user\desktop\ctc\any-base-calculator\utils.cpp
 	<string>
 	"utils.h"
 	<iostream>
@@ -17,11 +17,12 @@
 
 1607528676 c:\users\user\desktop\ctc\any-base-calculator\soma.h
 
-1607533208 source:c:\users\user\desktop\ctc\any-base-calculator\main.cpp
+1607539697 source:c:\users\user\desktop\ctc\any-base-calculator\main.cpp
 	<iostream>
 	<string>
 	"soma.h"
 	"subtracao.h"
+	"multiplicacao.h"
 
 1607467862 source:c:\users\user\desktop\ctc\any-base-calculator\caracteres.cpp
 	<cctype>
@@ -54,4 +55,22 @@
 	<iostream>
 
 1607530610 c:\users\user\desktop\ctc\any-base-calculator\subtradoradedigito.h
+
+1607539772 c:\users\user\desktop\ctc\any-base-calculator\multiplicacao.h
+	<string>
+
+1607541620 source:c:\users\user\desktop\ctc\any-base-calculator\multiplicadoradedigito.cpp
+	"multiplicadoradedigito.h"
+	"caracteres.h"
+	<iostream>
+
+1607540614 c:\users\user\desktop\ctc\any-base-calculator\multiplicadoradedigito.h
+
+1607543560 source:c:\users\user\desktop\ctc\any-base-calculator\multiplicacao.cpp
+	"multiplicacao.h"
+	"multiplicadoradedigito.h"
+	"utils.h"
+	"soma.h"
+	<stack>
+	<iostream>
 
