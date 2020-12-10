@@ -3,6 +3,7 @@
 #include "soma.h"
 #include "subtracao.h"
 #include "multiplicacao.h"
+#include "divisao.h"
 
 using namespace std;
 
@@ -33,6 +34,7 @@ int main() {
         if(operacoesValidas.find(operacao) < 4)
         {
             string resultado;
+
             switch(operacao)
             {
                 case '+':
@@ -51,6 +53,12 @@ int main() {
                 {
                     Multiplicacao m(nmrUm, nmrDois, base);
                     resultado = m.calcular();
+                    break;
+                }
+                case '/':
+                {
+                    Divisao d(nmrUm, nmrDois, base);
+                    resultado = d.calcular();
                     break;
                 }
             }

@@ -66,6 +66,5 @@ string Subtracao::calcular()
         else
             resultado = s.getSubtraido() + resultado;
     }
-
     return resultado;
 }

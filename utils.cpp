@@ -1,5 +1,6 @@
 #include <string>
 #include "utils.h"
+#include "caracteres.h"
 #include  <iostream>
 
 using namespace std;
@@ -144,5 +145,73 @@ int Utils::GetQtdDepoisDaVirgula(string nmr)
         return 0;
     else
         return len - 1 - i;
+}
+
+string Utils::TirarVirgula(string nmr)
+{
+    int i = -1;
+    int len = nmr.length();
+
+    for(i = 0; i < len; i++)
+        if(nmr.at(i) == ',' || nmr.at(i) == '.')
+            break;
+
+    if(i != len)
+        nmr.erase(i, 1);
+    return nmr;
+}
+
+bool Utils::EhMenor(string a, string b) {
+    int lenA = a.length();
+    int lenB = b.length();
+
+    if(lenA != lenB)
+        return lenA < lenB;
+
+    Caracteres caracteres;
+
+    for(int i = 0; i < lenA; i++)
+    {
+        char charA = a.at(i);
+        char charB = b.at(i);
+
+        if(charA == ',' || charA == '.')
+            if(charB == ',' || charB == '.')
+                continue;
+            else
+                return true;
+
+        if(charB == ',' || charB == '.')
+            if(charA == ',' || charA == '.')
+                continue;
+            else
+                return false;
+
+        int valorA = caracteres.getValor(charA);
+        int valorB = caracteres.getValor(charB);
+        if(valorA != valorB)
+            return valorA < valorB;
+    }
+    return false;
+}
+
+bool Utils::Contem(string v, char c)
+{
+    int len = v.length();
+    for(int i = 0; i < len; i++)
+        if(v.at(i) == c)
+            return true;
+    return false;
+}
+
+string Utils::RetirarZerosDaEsquerda(string str)
+{
+    int i;
+    int len = str.length();
+    for(i = 0; i < len; i++)
+        if(str.at(i) != '0')
+            break;
+
+    return str.substr(i, len - i);
 }
 
