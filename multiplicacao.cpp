@@ -24,26 +24,22 @@ string Multiplicacao::calcular()
     stack<string> pilha;
     int qtsLinhas = 0;
 
+    // percorre a linha de baixo, multiplicando cada caractere pela linha de cima
     for(int i = lenBaixo-1; i >= 0; i--)
     {
         char b = valorDois.at(i);
         if(b == ',' || b == '.')
-        {
-            totalVirgulas += lenBaixo - i - 1;
             continue;
-        }
 
         qtsLinhas++;
-
         string linha = "";
+
+        // percorre a linha de cima multiplicando pelo caractere de baixo
         for(int j = lenCima-1; j >= 0; j--)
         {
             char a = valorUm.at(j);
             if(a == ',' || a == '.')
-            {
-                totalVirgulas += lenCima - i - 1;
                 continue;
-            }
 
 
             m.Multiplicar(a, b, resto, this -> base);
@@ -58,6 +54,8 @@ string Multiplicacao::calcular()
             linha = linha + "0";
         pilha.push(linha);
     }
+
+    totalVirgulas = Utils::GetQtdDepoisDaVirgula(this -> valorUm) + Utils::GetQtdDepoisDaVirgula(this -> valorDois);
 
 
     // somatória das multiplicações

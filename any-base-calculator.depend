@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1607544035 source:c:\users\user\desktop\ctc\any-base-calculator\utils.cpp
+1607561789 source:c:\users\user\desktop\ctc\any-base-calculator\utils.cpp
 	<string>
 	"utils.h"
 	<iostream>
 
-1607528972 c:\users\user\desktop\ctc\any-base-calculator\utils.h
+1607561908 c:\users\user\desktop\ctc\any-base-calculator\utils.h
 	<string>
 
-1607528984 source:c:\users\user\desktop\ctc\any-base-calculator\soma.cpp
+1607548790 source:c:\users\user\desktop\ctc\any-base-calculator\soma.cpp
 	<iostream>
 	<string>
 	<stdlib.h>
@@ -48,7 +48,7 @@
 1607529113 c:\users\user\desktop\ctc\any-base-calculator\subtracao.h
 	<string>
 
-1607535863 source:c:\users\user\desktop\ctc\any-base-calculator\subtradoradedigito.cpp
+1607556918 source:c:\users\user\desktop\ctc\any-base-calculator\subtradoradedigito.cpp
 	"subtradoradedigito.h"
 	"somadoradedigito.h"
 	"caracteres.h"
@@ -56,8 +56,9 @@
 
 1607530610 c:\users\user\desktop\ctc\any-base-calculator\subtradoradedigito.h
 
-1607539772 c:\users\user\desktop\ctc\any-base-calculator\multiplicacao.h
+1607561425 c:\users\user\desktop\ctc\any-base-calculator\multiplicacao.h
 	<string>
+	<stack>
 
 1607541620 source:c:\users\user\desktop\ctc\any-base-calculator\multiplicadoradedigito.cpp
 	"multiplicadoradedigito.h"
@@ -66,7 +67,7 @@
 
 1607540614 c:\users\user\desktop\ctc\any-base-calculator\multiplicadoradedigito.h
 
-1607543560 source:c:\users\user\desktop\ctc\any-base-calculator\multiplicacao.cpp
+1607562167 source:c:\users\user\desktop\ctc\any-base-calculator\multiplicacao.cpp
 	"multiplicacao.h"
 	"multiplicadoradedigito.h"
 	"utils.h"

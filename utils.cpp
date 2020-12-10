@@ -21,10 +21,11 @@ string* Utils::AdaptarValores(string nmrUm, string nmrDois)
     int lenDoisAntesDaVirgula = valorDoisAntesDaVirgula.length();
 
 
-    if(lenUmAntesDaVirgula > lenDoisAntesDaVirgula)
-        valorDoisAntesDaVirgula = inserirZerosAntesDaVirgula(valorDoisAntesDaVirgula, lenUmAntesDaVirgula - lenDoisAntesDaVirgula);
-    else
-        valorUmAntesDaVirgula = inserirZerosAntesDaVirgula(valorUmAntesDaVirgula, lenDoisAntesDaVirgula - lenUmAntesDaVirgula);
+    if(lenUmAntesDaVirgula != lenDoisAntesDaVirgula)
+        if(lenUmAntesDaVirgula > lenDoisAntesDaVirgula)
+            valorDoisAntesDaVirgula = inserirZerosAntesDaVirgula(valorDoisAntesDaVirgula, lenUmAntesDaVirgula - lenDoisAntesDaVirgula);
+        else
+            valorUmAntesDaVirgula = inserirZerosAntesDaVirgula(valorUmAntesDaVirgula, lenDoisAntesDaVirgula - lenUmAntesDaVirgula);
 
     string valorUmDpsDaVirgula = getDepoisDaVirgula(nmrUm);
     int lenUmDepoisDaVirgula = valorUmDpsDaVirgula.length();
@@ -32,10 +33,11 @@ string* Utils::AdaptarValores(string nmrUm, string nmrDois)
     string valorDoisDpsDaVirgula = getDepoisDaVirgula(nmrDois);
     int lenDoisDepoisDaVirgula = valorDoisDpsDaVirgula.length();
 
-    if(lenUmDepoisDaVirgula > lenDoisDepoisDaVirgula)
-        valorDoisDpsDaVirgula = inserirZerosDepoisDaVirgula(valorDoisDpsDaVirgula, lenUmDepoisDaVirgula);
-    else
-        valorUmDpsDaVirgula = inserirZerosDepoisDaVirgula(valorUmDpsDaVirgula, lenDoisDepoisDaVirgula);
+    if(lenUmDepoisDaVirgula != lenDoisDepoisDaVirgula)
+        if(lenUmDepoisDaVirgula > lenDoisDepoisDaVirgula)
+            valorDoisDpsDaVirgula = inserirZerosDepoisDaVirgula(valorDoisDpsDaVirgula, lenUmDepoisDaVirgula);
+        else
+            valorUmDpsDaVirgula = inserirZerosDepoisDaVirgula(valorUmDpsDaVirgula, lenDoisDepoisDaVirgula);
 
     string *ret = new string[2];
     ret[0] = valorUmAntesDaVirgula + valorUmDpsDaVirgula;
@@ -46,6 +48,19 @@ string* Utils::AdaptarValores(string nmrUm, string nmrDois)
 string inserirZerosDepoisDaVirgula(string nmr, int limite)
 {
     int lenNmr = nmr.length();
+
+    bool temVirgula = false;
+    for(int i = 0; i< lenNmr && temVirgula == false; i++)
+    {
+        if(nmr.at(i) == ',' || nmr.at(i) == '.')
+            temVirgula = true;
+    }
+
+    if(temVirgula == false)
+    {
+        nmr+=",";
+        limite--;
+    }
 
     while(lenNmr < limite) {
         nmr += "0";
@@ -69,7 +84,7 @@ string getDepoisDaVirgula(string nmr)
     if(posVirgula == -1)
         return "";
     else
-        return nmr.substr(posVirgula + 1, lenNmr);
+        return nmr.substr(posVirgula, lenNmr);
 }
 
 string inserirZerosAntesDaVirgula(string nmr, int qtd)
@@ -94,13 +109,10 @@ string getAntesDaVirgula(string nmr)
     for(i = 0; i < len; i++)
     {
         char c = nmr.at(i);
-        ret += c;
         if(c == ',' || c == '.')
             break;
+        ret += c;
     }
-
-    if(i == len)
-        ret += ",";
 
     return ret;
 }
@@ -116,5 +128,21 @@ int getLengthAntesDaVirgula(string nmr)
             break;
     }
     return index-1;
+}
+
+int Utils::GetQtdDepoisDaVirgula(string nmr)
+{
+    int i = 0;
+    int qtd = 0;
+    int len = nmr.length();
+
+    for(i = 0; i < len; i++)
+        if(nmr.at(i) == ',' || nmr.at(i) == '.')
+            break;
+
+    if(i == len)
+        return 0;
+    else
+        return len - 1 - i;
 }
 

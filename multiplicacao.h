@@ -1,6 +1,7 @@
 #ifndef MULTIPLICACAO_H_INCLUDED
 #define MULTIPLICACAO_H_INCLUDED
 #include <string>
+#include <stack>
 
 using namespace std;
 class Multiplicacao {

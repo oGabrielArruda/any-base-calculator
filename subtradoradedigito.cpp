@@ -17,12 +17,7 @@ bool SubtradoraDeDigito::Subtrair()
     int a = this -> valorUm;
     int b = this -> valorDois;
     int subtracao = caracteres.getValor(a) - caracteres.getValor(b);
-    std::cout << "Valor um: ";
-    std::cout << caracteres.getValor(a) << "\n";
-    std::cout << "Valor dois: ";
-    std::cout << caracteres.getValor(b) << "\n";
-    std::cout << "Resultado:";
-    std::cout << subtracao << "\n\n";
+
     if(subtracao < 0) return false;
 
     this -> valorDaSubtracao = caracteres.getChar(subtracao);
