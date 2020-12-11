@@ -12,6 +12,7 @@ class Utils
         static bool EhMenor(std::string, std::string);
         static bool Contem(std::string, char);
         static std::string RetirarZerosDaEsquerda(std::string);
+        static bool isSinaisIguais(char, char);
 };
 
 #endif // UTILS_H_INCLUDED

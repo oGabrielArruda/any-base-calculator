@@ -35,6 +35,8 @@ string Soma::calcular()
             result = s.getSoma() + result;
         }
     }
+    if(carga != '0')
+        result = carga + result;
 
     return result;
 }
