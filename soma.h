@@ -1,5 +1,6 @@
 #ifndef SOMA_H_INCLUDED
 #define SOMA_H_INCLUDED
+#include <string>
 
 using namespace std;
 

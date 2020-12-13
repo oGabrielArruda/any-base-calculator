@@ -215,3 +215,13 @@ string Utils::RetirarZerosDaEsquerda(string str)
     return str.substr(i, len - i);
 }
 
+bool Utils::isSinaisIguais(char sinalUm, char sinalDois)
+{
+    if(sinalUm == '-' && sinalDois == '-')
+        return true;
+    if(!(sinalUm == '-') && !(sinalDois == '-'))
+        return true;
+
+    return false;
+}
+
