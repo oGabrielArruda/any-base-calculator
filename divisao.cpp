@@ -7,8 +7,11 @@
 
 Divisao::Divisao(string dividendo, string divisor, int base)
 {
-    this -> dividendo = Utils::TirarVirgula(dividendo);
-    this -> divisor = Utils::TirarVirgula(divisor);
+    string* valores = Utils::AdaptarValoresDivisao(dividendo, divisor);
+    this -> dividendo = valores[0];
+    this -> divisor = valores[1];
+    cout << this -> dividendo << "    ";
+    cout << this -> divisor << "   ";
     this -> parteFracionaria = false;
     this -> base = base;
 }
@@ -25,6 +28,7 @@ string Divisao::calcular() {
         dividirExpressao();
     }
 
+    // preenche o quociente com zeros, caso o resultado tenha batido
     while(!this->escorrega.empty())
     {
         quociente +="0";

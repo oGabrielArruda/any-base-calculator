@@ -101,7 +101,7 @@ string GerenciadoraDeOperacoes::requisitarMultiplicacao()
     return "-" + this -> multiplicar();
 }
 
-/*string GerenciadoraDeOperacoes::requisitarDivisao()
+string GerenciadoraDeOperacoes::requisitarDivisao()
 {
     char sinalValorUm = this -> valorUm.at(0);
     char sinalValorDois = this -> valorDois.at(0);
@@ -124,7 +124,7 @@ string GerenciadoraDeOperacoes::requisitarMultiplicacao()
         this -> valorDois = valorDois.substr(1, valorDois.size() - 1);
 
     return "-" + this -> dividir();
-}*/
+}
 
 string GerenciadoraDeOperacoes::somar()
 {
@@ -144,9 +144,9 @@ string GerenciadoraDeOperacoes::subtrair()
     return subtracao.calcular();
 }
 
-/*string GerenciadoraDeOperacoes::dividir()
+string GerenciadoraDeOperacoes::dividir()
 {
     Divisao divisao(valorUm, valorDois, base);
     return divisao.calcular();
-}*/
+}
 

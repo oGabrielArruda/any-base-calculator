@@ -225,3 +225,25 @@ bool Utils::isSinaisIguais(char sinalUm, char sinalDois)
     return false;
 }
 
+string* Utils::AdaptarValoresDivisao(string nmrUm, string nmrDois)
+{
+    string valorUmAntesDaVirgula = getAntesDaVirgula(nmrUm);
+    string valorDoisAntesDaVirgula = getAntesDaVirgula(nmrDois);
+
+    string valorUmDpsDaVirgula = getDepoisDaVirgula(nmrUm);
+    int lenUmDepoisDaVirgula = valorUmDpsDaVirgula.length();
+
+    string valorDoisDpsDaVirgula = getDepoisDaVirgula(nmrDois);
+    int lenDoisDepoisDaVirgula = valorDoisDpsDaVirgula.length();
+
+    if(lenUmDepoisDaVirgula != lenDoisDepoisDaVirgula)
+        if(lenUmDepoisDaVirgula > lenDoisDepoisDaVirgula)
+            valorDoisDpsDaVirgula = inserirZerosDepoisDaVirgula(valorDoisDpsDaVirgula, lenUmDepoisDaVirgula);
+        else
+            valorUmDpsDaVirgula = inserirZerosDepoisDaVirgula(valorUmDpsDaVirgula, lenDoisDepoisDaVirgula);
+
+    string *ret = new string[2];
+    ret[0] = Utils::TirarVirgula(valorUmAntesDaVirgula + valorUmDpsDaVirgula);
+    ret[1] = Utils::TirarVirgula(valorDoisAntesDaVirgula + valorDoisDpsDaVirgula);
+    return ret;
+}
