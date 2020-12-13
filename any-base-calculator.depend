@@ -209,7 +209,7 @@
 
 1607822782 c:\users\user\desktop\any-base-calculator\caracteres.h
 
-1607832087 source:c:\users\user\desktop\any-base-calculator\gerenciadoradeoperacoes.cpp
+1607865882 source:c:\users\user\desktop\any-base-calculator\gerenciadoradeoperacoes.cpp
 	"gerenciadoradeoperacoes.h"
 	<iostream>
 	<string>
@@ -228,21 +228,23 @@
 1607822782 c:\users\user\desktop\any-base-calculator\soma.h
 	<string>
 
-1607822782 c:\users\user\desktop\any-base-calculator\subtracao.h
+1607873726 c:\users\user\desktop\any-base-calculator\subtracao.h
 	<string>
+	<stack>
+	<subtradoradedigito.h>
 
 1607822782 c:\users\user\desktop\any-base-calculator\multiplicacao.h
 	<string>
 	<stack>
 
-1607830512 c:\users\user\desktop\any-base-calculator\divisao.h
+1607867400 c:\users\user\desktop\any-base-calculator\divisao.h
 	<string>
 	<queue>
 
 1607833220 c:\users\user\desktop\any-base-calculator\utils.h
 	<string>
 
-1607832104 source:c:\users\user\desktop\any-base-calculator\main.cpp
+1607865715 source:c:\users\user\desktop\any-base-calculator\main.cpp
 	<iostream>
 	<string>
 	"gerenciadoradeoperacoes.h"
@@ -281,7 +283,7 @@
 	"somadoradedigito.h"
 	"caracteres.h"
 
-1607822782 source:c:\users\user\desktop\any-base-calculator\subtracao.cpp
+1607874841 source:c:\users\user\desktop\any-base-calculator\subtracao.cpp
 	"subtracao.h"
 	"subtradoradedigito.h"
 	"utils.h"
@@ -289,21 +291,21 @@
 	<string>
 	<iostream>
 
-1607822782 c:\users\user\desktop\any-base-calculator\subtradoradedigito.h
+1607873035 c:\users\user\desktop\any-base-calculator\subtradoradedigito.h
 
-1607822782 source:c:\users\user\desktop\any-base-calculator\subtradoradedigito.cpp
+1607874470 source:c:\users\user\desktop\any-base-calculator\subtradoradedigito.cpp
 	"subtradoradedigito.h"
 	"somadoradedigito.h"
 	"caracteres.h"
 	<iostream>
 
-1607833116 source:c:\users\user\desktop\any-base-calculator\utils.cpp
+1607833210 source:c:\users\user\desktop\any-base-calculator\utils.cpp
 	<string>
 	"utils.h"
 	"caracteres.h"
 	<iostream>
 
-1607832585 source:c:\users\user\desktop\any-base-calculator\divisao.cpp
+1607869871 source:c:\users\user\desktop\any-base-calculator\divisao.cpp
 	"divisao.h"
 	"utils.h"
 	"multiplicacao.h"

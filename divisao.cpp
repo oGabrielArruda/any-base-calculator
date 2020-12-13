@@ -10,10 +10,9 @@ Divisao::Divisao(string dividendo, string divisor, int base)
     string* valores = Utils::AdaptarValoresDivisao(dividendo, divisor);
     this -> dividendo = valores[0];
     this -> divisor = valores[1];
-    cout << this -> dividendo << "    ";
-    cout << this -> divisor << "   ";
     this -> parteFracionaria = false;
     this -> base = base;
+    this -> qtdDepoisDaVirgula = 0;
 }
 
 string Divisao::calcular() {
@@ -26,6 +25,10 @@ string Divisao::calcular() {
         primeiraVez = false;
 
         dividirExpressao();
+
+        // verificacao para evitar dizimas
+        if(this -> qtdDepoisDaVirgula > 16)
+            break;
     }
 
     // preenche o quociente com zeros, caso o resultado tenha batido
@@ -94,6 +97,7 @@ void Divisao::aumentarArco()
     }
     else
     {
+        // se houver números para escorregar, o tiramos da fila
         char caractereParaDescer = this -> escorrega.front();
         this -> arco += caractereParaDescer;
         this -> escorrega.pop();
@@ -110,7 +114,10 @@ void Divisao::incrementarQuociente()
     {
         // se já há vírgula, inserimos apenas mais um zero
         if(Utils::Contem(this -> quociente, ',') || Utils::Contem(this -> quociente, '.'))
+        {
             this -> quociente += "0";
+            this -> qtdDepoisDaVirgula++;
+        }
         else
             this -> quociente += ",";
             // se ainda não há vírgula, inserimos
@@ -141,16 +148,15 @@ void Divisao::dividirExpressao() {
         }
     }
 
+
     Subtracao s(arco, ultimaMultiplicacao, this -> base);
     string subtracao = s.calcular();
+
     this -> arco = Utils::RetirarZerosDaEsquerda(subtracao);
     this -> quociente += saveMultiplicador;
 
-    cout << "Quociente: " << this -> quociente;
-    cout << "\nArco:: " << this -> arco;
-    cout << "\n";
-    char z;
-    cin >> z;
+    if(this -> parteFracionaria)
+        this -> qtdDepoisDaVirgula++;
 }
 
 

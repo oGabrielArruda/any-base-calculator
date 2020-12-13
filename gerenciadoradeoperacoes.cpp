@@ -20,7 +20,15 @@ string GerenciadoraDeOperacoes::requisitarSoma()
     char sinalValorDois = this -> valorDois.at(0);
 
     if(Utils::isSinaisIguais(sinalValorUm, sinalValorDois))
-        return this -> somar();
+    {
+        string valorSoma = this -> somar();
+
+        if(sinalValorUm == '-')
+            return '-' + valorSoma;
+        else
+            return valorSoma;
+    }
+
     return this -> requisitarSubtracao();
 }
 

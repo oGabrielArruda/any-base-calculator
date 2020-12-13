@@ -38,6 +38,8 @@
 		</Compiler>
 		<Unit filename="caracteres.cpp" />
 		<Unit filename="caracteres.h" />
+		<Unit filename="divisao.cpp" />
+		<Unit filename="divisao.h" />
 		<Unit filename="gerenciadoradeoperacoes.cpp" />
 		<Unit filename="gerenciadoradeoperacoes.h" />
 		<Unit filename="main.cpp" />

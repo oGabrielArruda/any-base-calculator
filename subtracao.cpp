@@ -13,58 +13,120 @@ Subtracao::Subtracao(string valorUm, string valorDois, int base)
     this -> valorUm = valores[0];
     this -> valorDois = valores[1];
     this -> base = base;
+    this -> pilhaExpressao = getPilhaExpressao(valores[0], valores[1]);
 }
 
 string Subtracao::calcular()
 {
     string resultado = "";
-    stack<SubtradoraDeDigito> pilha;
+    int tamPilha = this -> pilhaExpressao.size();
     bool emprestando = false;
-    int len = this -> valorUm.length();
 
-    for(int i = len - 1; i >= 0; i--)
+    // enquanto ainda há contas a se fazer
+    while(tamPilha > 0)
     {
-        char a = valorUm.at(i);
-        char b = valorDois.at(i);
-        SubtradoraDeDigito s(a, b, this -> base);
+        SubtradoraDeDigito contaDigito = pegarTopo();
 
-        if(a == ',' || b == '.')
+        if(contaDigito.getValorUm() == ',' || contaDigito.getValorUm() == '.')
         {
             resultado = "," + resultado;
             continue;
         }
 
-        if(emprestando)
+
+        if(contaDigito.Subtrair())
         {
-            if(a != '0')
-            {
-                int qtd = pilha.size();
-                while(!pilha.empty())
-                {
-                    s.perderUnidade();
-                    SubtradoraDeDigito topo = pilha.top();
-                    topo.receberBase();
-                    topo.Subtrair();
-
-                    pilha.pop();
-                    qtd--;
-                    if(qtd == 0)
-                        resultado = topo.getSubtraido() + resultado;
-                }
-            }
-            else
-                pilha.push(s);
-
-
-        }
-
-        if(!s.Subtrair())
-        {
-            pilha.push(s);
-            emprestando = true;
+            resultado = contaDigito.getSubtraido() + resultado;
         }
         else
-            resultado = s.getSubtraido() + resultado;
+        {
+            // se nõa conseguimos fazer a subtracao, emprestamos os números
+            SubtradoraDeDigito emprestado = emprestar(contaDigito);
+            emprestado.Subtrair();
+            resultado = emprestado.getSubtraido() + resultado;
+        }
+
+        tamPilha--;
     }
+
     return resultado;
+}
+
+
+SubtradoraDeDigito Subtracao::emprestar(SubtradoraDeDigito contaDigito)
+{
+    bool terminou = false;
+    stack<SubtradoraDeDigito> pilhaEmprestimo;
+
+    while(!terminou)
+    {
+        // pegamos o próximo valor da expressão, para tentarmos realizar o empréstimo
+        SubtradoraDeDigito topo = this -> pilhaExpressao.top();
+
+        // caso seja possível emprestar
+        if(topo.getValorUm() != '0')
+        {
+            // "cortamos o número"
+            topo.perderUnidade();
+            this -> pilhaExpressao.pop();
+            this -> pilhaExpressao.push(topo);
+
+            // e vamos passando o empréstimo para a frente
+            int qtdPilhaEmprestimo = pilhaEmprestimo.size();
+            while(qtdPilhaEmprestimo > 0)
+            {
+                // pegamos o valor que receberá o empréstimo
+                SubtradoraDeDigito paraEmprestar = pilhaEmprestimo.top();
+                pilhaEmprestimo.pop();
+                qtdPilhaEmprestimo--;
+
+                // emprestamos a ele
+                paraEmprestar.receberBase();
+
+                // e logo em seguida o cortamos, pois estamos emprestando para os próximos valores (que são 0)
+                paraEmprestar.perderUnidade();
+
+                // voltamos o valor já adaptado para a pilha da expressao
+                this -> pilhaExpressao.push(paraEmprestar);
+            }
+
+            // após emprestarmos para todos os antecedentes (se houverem), emprestamos a nossa conta requesitada
+            contaDigito.receberBase();
+            terminou = true;
+        }
+        else // caso o empréstimo não seja possível, temos que buscar outro número anterior para faze-lo
+        {
+            // empilhamos a conta na pilha de emprestimos a serem feitos
+            pilhaEmprestimo.push(topo);
+
+            // o retiramos da pilha expressao
+            this -> pilhaExpressao.pop();
+        }
+    }
+
+    return contaDigito;
+}
+
+SubtradoraDeDigito Subtracao::pegarTopo()
+{
+    SubtradoraDeDigito s = this -> pilhaExpressao.top();
+    this -> pilhaExpressao.pop();
+    return s;
+}
+
+stack<SubtradoraDeDigito> Subtracao::getPilhaExpressao(string valorUm, string valorDois)
+{
+    int len = this -> valorUm.length();
+    stack<SubtradoraDeDigito> pilha;
+
+    for(int i = 0; i < len; i++)
+    {
+        char a = valorUm.at(i);
+        char b = valorDois.at(i);
+
+        SubtradoraDeDigito s(a, b, this -> base);
+        pilha.push(s);
+    }
+
+    return pilha;
 }

@@ -15,6 +15,7 @@ class Divisao {
 
         int base;
         bool parteFracionaria;
+        int qtdDepoisDaVirgula;
 
         void dividirExpressao();
         void prepararArco(bool);

@@ -44,3 +44,13 @@ void SubtradoraDeDigito::perderUnidade()
     novoValor--;
     this -> valorUm = caracteres.getChar(novoValor);
 }
+
+char SubtradoraDeDigito::getValorUm()
+{
+    return this -> valorUm;
+}
+
+char SubtradoraDeDigito::getValorDois()
+{
+    return this -> valorDois;
+}

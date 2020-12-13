@@ -13,6 +13,8 @@ class SubtradoraDeDigito {
         void perderUnidade();
         void receberBase();
         char getSubtraido();
+        char getValorUm();
+        char getValorDois();
 
 };
 
