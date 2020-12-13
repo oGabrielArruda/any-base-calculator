@@ -14,65 +14,119 @@ Divisao::Divisao(string dividendo, string divisor, int base)
 }
 
 string Divisao::calcular() {
-    string dividendo = this -> dividendo;
-    string divisor = this -> divisor;
+    this -> arco = "1";
+    bool primeiraVez = true;
 
-    while(this -> dividendo != "0")
+    while(arco != "")
     {
-        if(this -> parteFracionaria)
-            this -> dividendo += "0";
+        prepararArco(primeiraVez);
+        primeiraVez = false;
 
-        bool a = Utils::EhMenor(dividendo, divisor);
-        while(Utils::EhMenor(dividendo, divisor))
-            adaptarExpressoes();
         dividirExpressao();
     }
+
+    while(!this->escorrega.empty())
+    {
+        quociente +="0";
+        this->escorrega.pop();
+    }
+
 
     return this -> quociente;
 }
 
-void Divisao::adaptarExpressoes()
+
+void Divisao::prepararArco(bool primeiraVez)
 {
+    if(primeiraVez)
+    {
+        prepararArcoPrimeiraVez();
+    }
+    else
+    {
+        this -> arco = Utils::RetirarZerosDaEsquerda(arco);
+        if(this -> parteFracionaria)
+            this -> arco += "0";
+    }
+
+
+    while(Utils::EhMenor(this -> arco, divisor))
+    {
+        aumentarArco();
+    }
+}
+
+void Divisao::prepararArcoPrimeiraVez()
+{
+    int divisorSize = this -> divisor.length();
+    int dividendoSize = this -> dividendo.length();
+
+    // se o tamanho do divisor for menor ou igual ao do dividendo
+    if(divisorSize < dividendoSize)
+        this -> arco = this -> dividendo.substr(0, divisorSize); // setamos o arco com o tamanho do divisor
+    else
+        this -> arco = this -> dividendo;
+
+
+    // colocamos os caracteres do dividendo na fila para futuramente esccorrega-los
+    for(int j = divisorSize; j < dividendoSize; j++)
+        this -> escorrega.push(this -> dividendo.at(j));
+
+
+    // aumentamos o arco, enquanto ele for menor que o divisor
+    while(Utils::EhMenor(this -> arco, divisor))
+    {
+        aumentarArco();
+    }
+}
+
+void Divisao::aumentarArco()
+{
+    // se não houver números para "escorregar" do dividendo
+    if(this -> escorrega.empty())
+    {
+        this -> arco += "0";
+        incrementarQuociente();
+    }
+    else
+    {
+        char caractereParaDescer = this -> escorrega.front();
+        this -> arco += caractereParaDescer;
+        this -> escorrega.pop();
+    }
+}
+
+
+void Divisao::incrementarQuociente()
+{
+    // se o quociente está vazio, inserimos 0 e vírgula
     if(this -> quociente == "")
         this -> quociente += "0,";
     else
+    {
+        // se já há vírgula, inserimos apenas mais um zero
         if(Utils::Contem(this -> quociente, ',') || Utils::Contem(this -> quociente, '.'))
             this -> quociente += "0";
         else
             this -> quociente += ",";
+            // se ainda não há vírgula, inserimos
+    }
 
-    this -> dividendo += "0";
-    this -> arco = this -> dividendo;
     this -> parteFracionaria = true;
 }
+
 
 void Divisao::dividirExpressao() {
     Caracteres caracteres;
     string ultimaMultiplicacao = "0";
     string saveMultiplicador;
 
-    gerarArco();
-    while(Utils::EhMenor(dividendo, divisor))
-        adaptarExpressoes();
-
-    char a;
-    std::cout << "Dividendo: ";
-    std::cout<< this-> dividendo <<"\n";
-    std::cout << "Divisor: ";
-    std::cout<< this-> divisor <<"\n";
-    std::cout << "Arco: ";
-    std::cout<< this -> arco <<"\n";
 
     for(int i = 0; i < this -> base; i++)
     {
         string multiplicador(1,caracteres.getChar(i));
-        std::cout<<multiplicador<<"\n";
         Multiplicacao m(this -> divisor, multiplicador, this -> base);
         string resultado = m.calcular();
-
-        std::cout << "resultado da multiplicacao: ";
-        std::cout << resultado << "\n";
-        std::cin >> a;
 
         if(Utils::EhMenor(this -> arco, resultado))
             break;
@@ -81,38 +135,19 @@ void Divisao::dividirExpressao() {
             ultimaMultiplicacao = resultado;
             saveMultiplicador = multiplicador;
         }
-
     }
-
-    std::cout << "Subtracao: ";
-    std::cout << this -> arco << "  -  ";
-    std::cout << ultimaMultiplicacao << "\n";
-    std::cin >> a;
 
     Subtracao s(arco, ultimaMultiplicacao, this -> base);
     string subtracao = s.calcular();
-    this -> dividendo = subtracao + this->dividendo.substr(this->divisor.length() + 1, this->dividendo.length() - this->divisor.length());
-
-    std::cout << "valor da subtracao: ";
-    std::cout << subtracao << "\n";
-    std::cin >> a;
-
+    this -> arco = Utils::RetirarZerosDaEsquerda(subtracao);
     this -> quociente += saveMultiplicador;
-    std::cout << "quociente: ";
-    std::cout << quociente << "\n";
+
+    cout << "Quociente: " << this -> quociente;
+    cout << "\nArco:: " << this -> arco;
+    cout << "\n";
+    char z;
+    cin >> z;
 }
 
-
-string Divisao::gerarArco()
-{
-    this -> dividendo = Utils::RetirarZerosDaEsquerda(this -> dividendo);
-
-    if(this -> divisor.length() < this -> dividendo.length())
-        this -> arco = this -> dividendo.substr(0, this->divisor.length()+1);
-    else
-    {
-        this -> arco = this -> dividendo;
-    }
-}
 
 

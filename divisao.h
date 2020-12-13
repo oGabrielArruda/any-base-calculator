@@ -1,6 +1,7 @@
 #ifndef DIVISAO_H_INCLUDED
 #define DIVISAO_H_INCLUDED
 #include <string>
+#include <queue>
 
 using namespace std;
 
@@ -10,15 +11,20 @@ class Divisao {
         string divisor;
         string quociente;
         string arco;
+        queue<char> escorrega;
+
         int base;
         bool parteFracionaria;
 
-        void adaptarExpressoes();
         void dividirExpressao();
-        string gerarArco();
+        void prepararArco(bool);
+        void prepararArcoPrimeiraVez();
+        void aumentarArco();
+        void incrementarQuociente();
     public:
         Divisao(string, string , int);
         string calcular();
 };
+
 
 #endif // DIVISAO_H_INCLUDED

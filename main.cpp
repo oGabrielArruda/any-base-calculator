@@ -54,7 +54,8 @@ int main() {
                 }
                case '/':
                 {
-                   // resultado = gerenciadoraDeOperacoes.requisitarDivisao();
+                    Divisao d(nmrUm, nmrDois, base);
+                    resultado = d.calcular();
                     break;
                 }
             }

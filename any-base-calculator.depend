@@ -203,3 +203,111 @@
 	"multiplicacao.h"
 	"divisao.h"
 
+1607822782 source:c:\users\user\desktop\any-base-calculator\caracteres.cpp
+	<cctype>
+	"caracteres.h"
+
+1607822782 c:\users\user\desktop\any-base-calculator\caracteres.h
+
+1607822782 source:c:\users\user\desktop\any-base-calculator\gerenciadoradeoperacoes.cpp
+	"gerenciadoradeoperacoes.h"
+	<iostream>
+	<string>
+	"utils.h"
+	"soma.h"
+	"subtracao.h"
+	"multiplicacao.h"
+	"divisao.h"
+
+1607822782 c:\users\user\desktop\any-base-calculator\gerenciadoradeoperacoes.h
+	"soma.h"
+	"subtracao.h"
+	"multiplicacao.h"
+	"divisao.h"
+
+1607822782 c:\users\user\desktop\any-base-calculator\soma.h
+	<string>
+
+1607822782 c:\users\user\desktop\any-base-calculator\subtracao.h
+	<string>
+
+1607822782 c:\users\user\desktop\any-base-calculator\multiplicacao.h
+	<string>
+	<stack>
+
+1607830512 c:\users\user\desktop\any-base-calculator\divisao.h
+	<string>
+	<queue>
+
+1607822782 c:\users\user\desktop\any-base-calculator\utils.h
+	<string>
+
+1607825992 source:c:\users\user\desktop\any-base-calculator\main.cpp
+	<iostream>
+	<string>
+	"gerenciadoradeoperacoes.h"
+	"soma.h"
+	"subtracao.h"
+	"multiplicacao.h"
+	"divisao.h"
+
+1607822782 source:c:\users\user\desktop\any-base-calculator\multiplicacao.cpp
+	"multiplicacao.h"
+	"multiplicadoradedigito.h"
+	"utils.h"
+	"soma.h"
+	<stack>
+	<iostream>
+
+1607822782 c:\users\user\desktop\any-base-calculator\multiplicadoradedigito.h
+
+1607822782 source:c:\users\user\desktop\any-base-calculator\multiplicadoradedigito.cpp
+	"multiplicadoradedigito.h"
+	"caracteres.h"
+	<iostream>
+
+1607822782 source:c:\users\user\desktop\any-base-calculator\soma.cpp
+	<iostream>
+	<string>
+	<stdlib.h>
+	"soma.h"
+	"utils.h"
+	"somadoradedigito.h"
+
+1607822782 c:\users\user\desktop\any-base-calculator\somadoradedigito.h
+
+1607822782 source:c:\users\user\desktop\any-base-calculator\somadoradedigito.cpp
+	<ctype.h>
+	"somadoradedigito.h"
+	"caracteres.h"
+
+1607822782 source:c:\users\user\desktop\any-base-calculator\subtracao.cpp
+	"subtracao.h"
+	"subtradoradedigito.h"
+	"utils.h"
+	<stack>
+	<string>
+	<iostream>
+
+1607822782 c:\users\user\desktop\any-base-calculator\subtradoradedigito.h
+
+1607822782 source:c:\users\user\desktop\any-base-calculator\subtradoradedigito.cpp
+	"subtradoradedigito.h"
+	"somadoradedigito.h"
+	"caracteres.h"
+	<iostream>
+
+1607822782 source:c:\users\user\desktop\any-base-calculator\utils.cpp
+	<string>
+	"utils.h"
+	"caracteres.h"
+	<iostream>
+
+1607831100 source:c:\users\user\desktop\any-base-calculator\divisao.cpp
+	"divisao.h"
+	"utils.h"
+	"multiplicacao.h"
+	"subtracao.h"
+	"caracteres.h"
+	<iostream>
+
