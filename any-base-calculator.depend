@@ -403,7 +403,7 @@
 	"somadoradedigito.h"
 	"caracteres.h"
 
-1607950291 source:c:\users\user\desktop\a\any-base-calculator\subtracao.cpp
+1607979464 source:c:\users\user\desktop\a\any-base-calculator\subtracao.cpp
 	"subtracao.h"
 	"subtradoradedigito.h"
 	"utils.h"
@@ -411,7 +411,7 @@
 	<string>
 	<iostream>
 
-1607949787 source:c:\users\user\desktop\a\any-base-calculator\subtradoradedigito.cpp
+1607974145 source:c:\users\user\desktop\a\any-base-calculator\subtradoradedigito.cpp
 	"subtradoradedigito.h"
 	"somadoradedigito.h"
 	"caracteres.h"

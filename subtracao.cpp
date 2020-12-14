@@ -63,9 +63,10 @@ SubtradoraDeDigito Subtracao::emprestar(SubtradoraDeDigito contaDigito)
     {
         // pegamos o próximo valor da expressão, para tentarmos realizar o empréstimo
         SubtradoraDeDigito topo = this -> pilhaExpressao.top();
+        char valorUmTopo = topo.getValorUm();
 
         // caso seja possível emprestar
-        if(topo.getValorUm() != '0')
+        if(valorUmTopo != '0' && valorUmTopo != ',' && valorUmTopo != '.')
         {
             // "cortamos o número"
             topo.perderUnidade();
@@ -81,15 +82,21 @@ SubtradoraDeDigito Subtracao::emprestar(SubtradoraDeDigito contaDigito)
                 pilhaEmprestimo.pop();
                 qtdPilhaEmprestimo--;
 
-                // emprestamos a ele
-                paraEmprestar.receberBase();
+                // se o valor nao for vírgula nem ponto
+                if(paraEmprestar.getValorUm() != ',' && paraEmprestar.getValorUm() != '.')
+                {
+                    // emprestamos a ele
+                    paraEmprestar.receberBase();
 
-                // e logo em seguida o cortamos, pois estamos emprestando para os próximos valores (que são 0)
-                paraEmprestar.perderUnidade();
+                    // e logo em seguida o cortamos, pois estamos emprestando para os próximos valores (que são 0)
+                    paraEmprestar.perderUnidade();
+                }
 
                 // voltamos o valor já adaptado para a pilha da expressao
                 this -> pilhaExpressao.push(paraEmprestar);
             }
+
+            SubtradoraDeDigito s = this -> pilhaExpressao.top();
 
             // após emprestarmos para todos os antecedentes (se houverem), emprestamos a nossa conta requesitada
             contaDigito.receberBase();

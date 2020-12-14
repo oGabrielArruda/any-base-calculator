@@ -14,8 +14,8 @@ SubtradoraDeDigito::SubtradoraDeDigito(char valorUm, char valorDois, int base)
 
 bool SubtradoraDeDigito::Subtrair()
 {
-    int a = this -> valorUm;
-    int b = this -> valorDois;
+    char a = this -> valorUm;
+    char b = this -> valorDois;
     int subtracao = caracteres.getValor(a) - caracteres.getValor(b);
 
     if(subtracao < 0) return false;
