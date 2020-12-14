@@ -21,12 +21,28 @@ string GerenciadoraDeOperacoes::requisitarSoma()
 
     if(Utils::isSinaisIguais(sinalValorUm, sinalValorDois))
     {
+        if(sinalValorUm == '-')
+        {
+            this -> valorUm = valorUm.substr(1, valorUm.size() - 1);
+            this -> valorDois = valorDois.substr(1, valorDois.size() - 1);
+        }
+
         string valorSoma = this -> somar();
 
         if(sinalValorUm == '-')
             return '-' + valorSoma;
         else
             return valorSoma;
+    }
+    else
+    {
+        if(sinalValorUm == '-')
+        {
+            this -> valorUm = valorUm.substr(1, valorUm.size() - 1);
+            string valorAux = this -> valorUm;
+            this -> valorUm = this -> valorDois;
+            this -> valorDois = valorAux;
+        }
     }
 
     return this -> requisitarSubtracao();

@@ -30,6 +30,7 @@ string Subtracao::calcular()
         if(contaDigito.getValorUm() == ',' || contaDigito.getValorUm() == '.')
         {
             resultado = "," + resultado;
+            tamPilha--;
             continue;
         }
 
@@ -40,7 +41,7 @@ string Subtracao::calcular()
         }
         else
         {
-            // se nõa conseguimos fazer a subtracao, emprestamos os números
+            // se nao conseguimos fazer a subtracao, emprestamos os números
             SubtradoraDeDigito emprestado = emprestar(contaDigito);
             emprestado.Subtrair();
             resultado = emprestado.getSubtraido() + resultado;
